@@ -1,42 +1,42 @@
-class Usuario {
-    constructor (nombre, apellido, libros=[], mascotas=[]){
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.libros=libros;
-        this.mascotas=mascotas;
-    }
-    getFullName(){
-        console.log(`Nombre Completo: ${this.nombre} ${this.apellido}.`)
-    }
-    addMascotas(mascota){
-        let todas=this.mascotas;
-        console.log(this.mascotas.push(mascota));
-        return todas;
-    }
-    countMascotas(){
-       let cantidad= this.mascotas.length;
-       return 'cantidad de mascotas: '+cantidad;
-    }
-    addBook(titulo,autor){
-        this.libros.push({titulo,autor});
-    }
-    getBookNames(){
-        const titulosLibros=[];
-        this.libros.forEach((item)=>titulosLibros.push(item.titulo));
-        return titulosLibros
-    }
-}
+import {Contenedor} from "./desafio.js";
 
-const usuario1= new Usuario (
-    'Cande', 
-    'Vocos',
-    [{ titulo:'Harry Potter', autor:'Merlino' }],
-    ["gato","perro"]
-     );
+const producto = new Contenedor('productos')
 
-usuario1.getFullName();
-console.log(usuario1.countMascotas());
-console.log(usuario1.addMascotas('loro'));
-console.log(usuario1.countMascotas());
-usuario1.addBook('El senior de los anillos', 'Tu mama');
-console.log(usuario1.getBookNames());
+producto.getAll()
+    .then((data) => console.log({
+        data
+    }))
+    .catch((error) => console.log({
+        error
+    }))
+
+producto.save({
+        title: 'Lapicera',
+        price: '25',
+        thumbnail: 'https://aldina.com.ar/wp-content/uploads/2020/08/bic-cristal-trazo-fino-azul-1.jpg',
+
+    })
+    .then((data) => console.log({
+        data
+    }))
+    .catch((error) => console.log({
+        error
+    }))
+
+producto.getById(10)
+    .then((idProducto) => console.log({
+        idProducto
+    }))
+    .catch((error) => console.log({
+        error
+    }))
+
+producto.deleteById(3)
+    .then(console.log(`eliminado con exito`))
+    .catch((error) => console.log({
+        error
+    }))
+
+// producto.deleteAll()
+// .then(console.log(`Archivo eliminado con exito`))
+// .catch((error)=>console.log({error}))
