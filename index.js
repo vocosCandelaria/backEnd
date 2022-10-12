@@ -31,11 +31,11 @@ producto.getById(10)
         error
     }))
 
-producto.deleteById(3)
-    .then(console.log(`eliminado con exito`))
-    .catch((error) => console.log({
-        error
-    }))
+// producto.deleteById(3)
+//     .then(console.log(`eliminado con exito`))
+//     .catch((error) => console.log({
+//         error
+//     }))
 
 // producto.deleteAll()
 // .then(console.log(`Archivo eliminado con exito`))

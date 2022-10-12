@@ -35,7 +35,7 @@ class Contenedor {
         try {
           const array = await this.getAll();
     
-          const idEncontrado = array.find((element) => element.id == id);
+          const idEncontrado = array.find((element) => element.id === id);
     
           if (!idEncontrado) return null;
     
